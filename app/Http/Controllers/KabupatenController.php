@@ -12,7 +12,7 @@ class KabupatenController extends Controller
     public function show(Request $request)
     {
         $params = $request->all();
-        $provinsi = Kabupaten::filter($params)->get();
-        return $provinsi;
+        $kabupaten = Kabupaten::filter($params)->get();
+        return $kabupaten;
     }
 }

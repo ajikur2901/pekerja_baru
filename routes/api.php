@@ -13,24 +13,30 @@ use Illuminate\Http\Request;
 |
 */
 
+// login user
 Route::post('/login', 'PassportController@login');
-Route::post('/register', 'PassportController@register');
 
 Route::middleware('auth:api')->group(function(){
+    // register user
+    Route::post('/register', 'PassportController@register');
+
+    // get user
     Route::get('/user', 'PassportController@details');
 
-    // daerah
-    Route::get('/provinsi', 'ProvinsiController@index');    
-    Route::get('/provinsi/search', 'ProvinsiController@show');
+    // get daerah
+    Route::get('/provinsi',         'ProvinsiController@index');    
+    Route::get('/provinsi/search',  'ProvinsiController@show');
     Route::get('/kabupaten/search', 'KabupatenController@show');
-    
+    Route::get('/kecamatan/search', 'KecamatanController@show');
+    Route::get('/kelurahan/search', 'KelurahanController@show');
+    Route::get('/kodepos/search',   'KodeposController@show');
+
+    // get master data
+    Route::get('/agama',                'MasterAgamaController@index');
+    Route::get('/hubungan_keluarga',    'MasterHubunganKeluargaController@index');
+    Route::get('/hubungan_kerja',       'MasterHubunganKerjaController@index');
+    Route::get('/status_rumah',         'MasterStatusRumahController@index');
 });
 
 
-Route::middleware('auth:api')->get('/kecamatan', function (Request $request) {
-    return 'under construction!';
-});
 
-Route::middleware('auth:api')->get('/desa', function (Request $request) {
-    return 'under construction!';
-});
