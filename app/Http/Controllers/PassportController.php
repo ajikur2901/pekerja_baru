@@ -61,6 +61,6 @@ class PassportController extends Controller
      */
     public function details()
     {
-        return $response()->json(['user' => auth()->user(),200]);
+        return response()->json(['user' => auth()->user(),200]);
     }
 }
