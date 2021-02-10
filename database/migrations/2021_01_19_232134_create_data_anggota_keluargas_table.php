@@ -23,6 +23,8 @@ class CreateDataAnggotaKeluargasTable extends Migration
             $table->date('tanggal_lahir')->nullable();
             $table->tinyInteger('ditanggung')->nullable()->unsigned();
             $table->tinyInteger('status_nikah')->nullable()->unsigned();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
             $table->foreign('id_pekerja')->references('id_pribadi')->on('data_pribadi');
             
         });

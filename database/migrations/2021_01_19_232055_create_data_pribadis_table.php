@@ -34,7 +34,8 @@ class CreateDataPribadisTable extends Migration
             $table->integer('jumlah_anak')->unsigned()->nullable();
             $table->string('created_by',20)->nullable();
             $table->string('created_ip_addr',50)->nullable();
-            $table->timestamp('created_timestamp')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
             
         });
     }

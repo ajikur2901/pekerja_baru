@@ -36,6 +36,13 @@ Route::middleware('auth:api')->group(function(){
     Route::get('/hubungan_keluarga',    'MasterHubunganKeluargaController@index');
     Route::get('/hubungan_kerja',       'MasterHubunganKerjaController@index');
     Route::get('/status_rumah',         'MasterStatusRumahController@index');
+
+    // simpan input data
+    Route::post('dataPribadi/simpan',           'DataPribadiController@simpan');
+    Route::post('dataAlamatDomisili/simpan',    'DataAlamatDomisiliController@simpan');
+    Route::post('dataAlamatRumah/simpan',       'DataAlamatRumahController@simpan');
+    Route::post('dataKeluarga/simpan',          'DataAnggotaKeluargaController@simpan');
+    Route::post('dataBpjs/simpan',              'DataBpjsController@simpan');
 });
 
 
