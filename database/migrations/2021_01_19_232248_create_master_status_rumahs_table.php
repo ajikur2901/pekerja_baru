@@ -17,6 +17,9 @@ class CreateMasterStatusRumahsTable extends Migration
 
             $table->increments('id');
             $table->string('status',100);
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->softDeletes();
     
         });
     }

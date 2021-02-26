@@ -15,12 +15,11 @@ class DataBpjsController extends Controller
      */
     public function simpan(Request $request)
     {
-        // return response()->json($request,200);
         $this->validate($request,[
             'id_pekerja'            => 'required|numeric',
             'nama_instansi'         => 'required',
             'sebelumnya_peserta'    => 'required',
-            'no_peserta'            => 'required|numeric',
+            'no_peserta'            => 'nullable|numeric',
             'hubungan_kerja'        => 'required',
             'fasilitas_kesehatan_1' => 'required'
         ]);

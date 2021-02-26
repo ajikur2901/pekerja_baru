@@ -17,6 +17,9 @@ class CreateMasterHubunganKerjasTable extends Migration
 
             $table->increments('id');
             $table->string('hubungan',100);
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->softDeletes();
 
         });
     }

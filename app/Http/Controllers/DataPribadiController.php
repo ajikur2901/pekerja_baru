@@ -15,7 +15,6 @@ class DataPribadiController extends Controller
      */
     public function simpan(Request $request)
     {
-        // return response()->json($request,200);
         $this->validate($request,[
             'nik'               => 'required|numeric',
             'no_kk'             => 'required|numeric',
@@ -53,7 +52,8 @@ class DataPribadiController extends Controller
             'status_nikah'      => $request->status_nikah,
             'tanggal_nikah'     => $request->tanggal_nikah ? $request->tanggal_nikah : null,
             'jumlah_anak'       => $request->jumlah_anak ? $request->jumlah_anak : null,
-            'created_by'        => $request->created_by,
+            'jumlah_anak'       => $request->jumlah_anak ? $request->jumlah_anak : null,
+            'created_by'        => $_SERVER['HTTP_USER_AGENT'],
             'created_ip_addr'   => $_SERVER['REMOTE_ADDR']
         ]);
 

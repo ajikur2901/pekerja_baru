@@ -17,6 +17,9 @@ class CreateMasterAgamasTable extends Migration
             
             $table->increments('id');
             $table->string('agama',20);
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->softDeletes();
 
         });
     }

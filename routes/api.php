@@ -16,9 +16,10 @@ use Illuminate\Http\Request;
 // login user
 Route::post('/login', 'PassportController@login');
 
+// register user
+Route::post('/register', 'PassportController@register');
+
 Route::middleware('auth:api')->group(function(){
-    // register user
-    Route::post('/register', 'PassportController@register');
 
     // get user
     Route::get('/user', 'PassportController@details');
@@ -31,11 +32,27 @@ Route::middleware('auth:api')->group(function(){
     Route::get('/kelurahan/search', 'KelurahanController@show');
     Route::get('/kodepos/search',   'KodeposController@show');
 
-    // get master data
-    Route::get('/agama',                'MasterAgamaController@index');
-    Route::get('/hubungan_keluarga',    'MasterHubunganKeluargaController@index');
-    Route::get('/hubungan_kerja',       'MasterHubunganKerjaController@index');
-    Route::get('/status_rumah',         'MasterStatusRumahController@index');
+    // get / create / update / delete master data
+        //agama
+    Route::get('/agama',                        'MasterAgamaController@index');
+    Route::post('/agama/create',                'MasterAgamaController@create');
+    Route::put('/agama/update',                 'MasterAgamaController@update');
+    Route::delete('/agama/delete/{id}',         'MasterAgamaController@delete');
+        //hub keluarga
+    Route::get('/hubunganKeluarga',             'MasterHubunganKeluargaController@index');
+    Route::post('/hubunganKeluarga/create',     'MasterHubunganKeluargaController@create');
+    Route::put('/hubunganKeluarga/update',      'MasterHubunganKeluargaController@update');
+    Route::delete('/hubunganKeluarga/delete/{id}','MasterHubunganKeluargaController@delete');
+        //hub kerja
+    Route::get('/hubunganKerja',                'MasterHubunganKerjaController@index');
+    Route::post('/hubunganKerja/create',        'MasterHubunganKerjaController@create');
+    Route::put('/hubunganKerja/update',         'MasterHubunganKerjaController@update');
+    Route::delete('/hubunganKerja/delete/{id}', 'MasterHubunganKerjaController@delete');
+        //stat rumah
+    Route::get('/statusRumah',                  'MasterStatusRumahController@index');
+    Route::post('/statusRumah/create',          'MasterStatusRumahController@create');
+    Route::put('/statusRumah/update',           'MasterStatusRumahController@update');
+    Route::delete('/statusRumah/delete/{id}',   'MasterStatusRumahController@delete');
 
     // simpan input data
     Route::post('dataPribadi/simpan',           'DataPribadiController@simpan');
